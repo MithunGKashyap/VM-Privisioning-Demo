@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "f658672c-1dcb-4bb4-b2bd-a15a9b5da049",
+		"name": "VMProvisioning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"aas\",\r\n    \"password\":\"paaasss1\",\r\n    \"email\": \"sivaa@vm\",\r\n    \"mobileNo\":\"+91-9191919133\",\r\n    \"role\":\"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appUser/signUp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appUser",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default"
+					},
+					{
+						"key": "username",
+						"value": "user",
+						"type": "default"
+					},
+					{
+						"key": "password",
+						"value": "1234",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/login?username=siva&password=pass1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "siva"
+						},
+						{
+							"key": "password",
+							"value": "pass1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzaXZhIiwicm9sZSI6IkFETUlOIiwibmJmIjoxNjY4MTg2MDA2LCJleHAiOjE2NjgyNzI0MDYsInVzZXJJZCI6IjEiLCJ1c2VybmFtZSI6InNpdmEifQ.EGiqS7RbrdRMeX0QpiPHDDH9ye5BvATbKD4HkocGm0i7qk2wFzcH-ovBDILaHqgfMiJkS6U1wObkoqfLV6u5_pFUZtKhPtVHF2JcNfY8sElaQZl7W_PFmqhg7OLOJWN8TILpToYz1Uty2WEnRKV7dz1Ilx4hHM0FHI9AL7wDtWB2EWJBx0PNu-dGV15Sy02gaaGNgS5uGvunh_3BPCSr5HVdez4Gi4piw84ol3h3c2UkupVN8QUgfXcRefkgawOEOStT-gcZMqPygGsFWzeRhBid4zREae5jcmJ-DCy6NrGAdOjFte5yZnQz2XfRU9jLfQsuHpPwaVRsZrbZ-5M0AA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"TLR\",\r\n    \"password\":\"pass\",\r\n    \"email\": \"tlr@mgk\",\r\n    \"mobileNo\":\"+91-91919191\",\r\n    \"role\":\"ADMIN\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appUser/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appUser",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzaXZhIiwicm9sZSI6IkFETUlOIiwibmJmIjoxNjY3NzU3NDI5LCJleHAiOjE2Njc4NDM4MjksInVzZXJJZCI6IjEiLCJ1c2VybmFtZSI6InNpdmEifQ.eP2g9ZTOowSI5ZYYA1ZpW_gDKLJik3PCv_8DEAkeKOcYqxqoZQWKkYCWtkBBy1LJ16rnjxHxDoUIjMfE7LQ4UmXUtQw16Hs1LKOuPh7BN1mld3hLxIKamq1Z7ll98CJv15AwpPTWnlwB2znQdrxImhGJtkk1jSYDPx8bBLeFmveCqWnIIktC2prfTVWiZltJLRIPLBvhC4FB6MKmoYkETrWFP3KOOOstd7KbnBNFhwVTFQ1Kg7h_Z9zYmcTgmU790eHTm--PE9PuPf97QKaq9t5mKER1FRpH_EHuv3wPQdOmeZYlJvBF5YKhSbHljeHPIqbnsKEK8-IAAjvZzuseWQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/appUser/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appUser",
+						"1"
+					],
+					"query": [
+						{
+							"key": "appUserId",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_VM",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzaXZhIiwicm9sZSI6IkFETUlOIiwibmJmIjoxNjY3OTIxMzA2LCJleHAiOjE2NjgwMDc3MDYsInVzZXJJZCI6IjEiLCJ1c2VybmFtZSI6InNpdmEifQ.d8DBEr61btglRrWtqSCdi_Wb9zygO7mc-lPlVaa063Xf48elGsdIntt8nEakWBuRqwn99HY7g0izIdXFCqnPmMAI0Dc6rwDF7jU-5vZ7v7BIJqk64DwFhaRWnX7_u4v_O5YVrOtzHcfCRoSFvLUf8XqCpClXMToB4DU5Y13C7HXgPfJQAukSYJWJZZCGmfSgunEqhWR7e5nbmPzK5QQX33ZIccBgRA2OprFFwdFLVTuJrIuQSBLaP3M10hAa2MwNLSDCyVe34maoW37OMe2lYQgn3P-lw9CR10nPPTUlxxdGNdZVQRbhw-jQ5_ED4kez9J4XQ7pY2f2Rt3Lu1q3HSA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "appUserId",
+						"value": "3",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appUser\": 2,\r\n    \"os\":1,\r\n    \"ram\":1,\r\n    \"hardDisk\":1,\r\n    \"cpuCores\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vm/1?appUserId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"1"
+					],
+					"query": [
+						{
+							"key": "appUserId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_VM",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzaXZhIiwicm9sZSI6IkFETUlOIiwibmJmIjoxNjY3OTIxMzA2LCJleHAiOjE2NjgwMDc3MDYsInVzZXJJZCI6IjEiLCJ1c2VybmFtZSI6InNpdmEifQ.d8DBEr61btglRrWtqSCdi_Wb9zygO7mc-lPlVaa063Xf48elGsdIntt8nEakWBuRqwn99HY7g0izIdXFCqnPmMAI0Dc6rwDF7jU-5vZ7v7BIJqk64DwFhaRWnX7_u4v_O5YVrOtzHcfCRoSFvLUf8XqCpClXMToB4DU5Y13C7HXgPfJQAukSYJWJZZCGmfSgunEqhWR7e5nbmPzK5QQX33ZIccBgRA2OprFFwdFLVTuJrIuQSBLaP3M10hAa2MwNLSDCyVe34maoW37OMe2lYQgn3P-lw9CR10nPPTUlxxdGNdZVQRbhw-jQ5_ED4kez9J4XQ7pY2f2Rt3Lu1q3HSA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_All_VM",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJzaXZhIiwicm9sZSI6IlVTRVIiLCJuYmYiOjE2Njc3NTUwNjYsImV4cCI6MTY2Nzg0MTQ2NiwidXNlcklkIjoiMSIsInVzZXJuYW1lIjoic2l2YSJ9.gJP_wiXZSHUqmzAIG1jEUL44cPdet0Hu4mZ7DZ1k3l2Jk7JsY9whRHGmqigZjZn39HnWDv1KnkOVOcOI9ymoSoB_oJ8bssloq2aYFzgOLAf0GUEl582l3RlSKLvDo6PQZoUyta5QTSeR5A3yQV2MnV8_5bf7GeLyIB_I8d_1MV_-OnQw4KdDG2NIjiag-XaOVJcPZLae1Yd8qXf5EmF_R4exAPHOiABl6c6Jjc6j1vPNU-0e4e5CMv2suGB1igFwI6HKnYvHU4L6xg8FMS6B4bwDtH5GsmYYSYVhHqfmjZiaNVtgXCF1uShTZDzqZhzJpBxv-CLlulUEV61pD-FDRw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vm/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vm",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
