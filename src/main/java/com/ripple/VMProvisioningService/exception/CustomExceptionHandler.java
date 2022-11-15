@@ -3,6 +3,7 @@ package com.ripple.VMProvisioningService.exception;
 import com.ripple.VMProvisioningService.data.ResponseData;
 import com.ripple.VMProvisioningService.service.ResponseStatusConstants;
 import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -27,12 +28,14 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseData);
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
+    @ExceptionHandler(UnknownExecutionException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseEntity<Object> handleConstraintViolationException(SQLException ex) {
+    public ResponseEntity<Object> handleUnknownException(SQLException ex) {
         ResponseData responseData = new ResponseData(HttpStatus.INTERNAL_SERVER_ERROR.value(), ResponseStatusConstants.ERROR.name(), ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseData);
     }
+
+
 
 
 

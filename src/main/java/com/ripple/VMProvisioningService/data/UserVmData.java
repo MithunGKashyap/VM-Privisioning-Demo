@@ -1,20 +1,33 @@
 package com.ripple.VMProvisioningService.data;
 
+import com.ripple.VMProvisioningService.model.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class UserVmData {
-    private Long id;
 
-    private Integer appUser;
+    private String appUser;
 
-    private Integer os;
+    private String os;
 
-    private Integer ram;
+    private String ram;
 
-    private Integer hardDisk;
+    private String hardDisk;
 
-    private Integer cpuCores;
+    private String cpuCores;
+
+    public UserVmData(String appUser, String os, String ram, String hardDisk, String cpuCores) {
+        this.appUser = appUser;
+        this.os = os;
+        this.ram = ram;
+        this.hardDisk = hardDisk;
+        this.cpuCores  =cpuCores;
+    }
 }

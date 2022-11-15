@@ -1,9 +1,9 @@
 package com.ripple.VMProvisioningService.service;
 
-import com.ripple.VMProvisioningService.data.ResponseData;
-import com.ripple.VMProvisioningService.data.UserVmData;
-import com.ripple.VMProvisioningService.model.UserVm;
+import org.springframework.http.ResponseEntity;
 
 public interface UserVmReadService {
-    UserVm getUserVmById(final Integer appUserId);
+    ResponseEntity getVMByUserId(final Long appUserId);
+    ResponseEntity getTopNUserVM(final Long topN, final Long appUserId);
+
 }

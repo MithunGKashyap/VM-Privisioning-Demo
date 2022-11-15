@@ -2,18 +2,17 @@ package com.ripple.VMProvisioningService.controller;
 
 import com.ripple.VMProvisioningService.config.JwtHelper;
 import com.ripple.VMProvisioningService.config.WebSecurityConfig;
-import com.ripple.VMProvisioningService.data.ResponseData;
 import com.ripple.VMProvisioningService.model.AppUser;
 import com.ripple.VMProvisioningService.service.AppUserWriteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -32,7 +31,7 @@ public class AuthController {
     private final AppUserWriteService appUserWriteService;
 
     @PostMapping(path = "signUp")
-    public ResponseData createAppUser(@RequestBody final AppUser appUser){
+    public ResponseEntity createAppUser(@RequestBody final AppUser appUser) {
         return this.appUserWriteService.saveAppUser(appUser);
     }
 
